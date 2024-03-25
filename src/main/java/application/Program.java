@@ -23,14 +23,9 @@ public class Program {
 			// Instantiates an  EntityManager
 			entityManager = emFactory.createEntityManager();
 			
-			entityManager.getTransaction().begin();
-			
-			entityManager.persist(p1);
-			entityManager.persist(p2);
-			entityManager.persist(p3);
-			
-			entityManager.getTransaction().commit();
+			Person result = entityManager.find(Person.class, 5);
 			System.out.println("Done!");
+			System.out.println(result);
 		} 
 		catch (Exception e) {
 			System.out.println("Error: "+ e.getMessage());
