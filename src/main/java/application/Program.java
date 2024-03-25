@@ -23,10 +23,11 @@ public class Program {
 			// Instantiates an  EntityManager
 			entityManager = emFactory.createEntityManager();
 			
-			Person p = entityManager.find(Person.class, 4);
+			Person p = entityManager.find(Person.class, 6);
 			
 			entityManager.getTransaction().begin();
-			entityManager.remove(p);
+			p.setName("Maria Green Light");
+			entityManager.persist(p);;
 			entityManager.getTransaction().commit();
 			System.out.println("Done!");
 		} 
